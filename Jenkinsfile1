@@ -11,9 +11,18 @@ pipeline{
         stage('build docker image'){
         
         steps{
-        sh "docker build -t apache ."
+        sh "docker build -t apache:$BUILD_NUMBER ."
+        sh "docker inspect apache:$BUILD_NUMBER"
         
         }
         }
+        stage("build the continer"){
+         steps{
+         sh "docker run --name web-server -d -p 90:90 apache:$BUILD_NUMBER"
+         
+         }
+        }
+        
+       
     }
  }
