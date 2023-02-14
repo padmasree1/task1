@@ -4,7 +4,7 @@ pipeline{
    stage('checkout'){
         
             steps{
-            git credentialsId: 'GITcredentials', url: 'https://github.com/padmasree1/task1.git'
+            git branch: 'main', url: 'https://github.com/padmasree1/task1.git'
             }
         } 
         
