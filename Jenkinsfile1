@@ -1,17 +1,17 @@
 pipeline{
  agent any
  stages{
-   stage('checkout')
-        {
+   stage('checkout'){
+        
             steps{
             git credentialsId: 'GITcredentials', url: 'https://github.com/padmasree1/task1.git'
             }
         } 
         
-        stage('build docker image')
-        {
+        stage('build docker image'){
+        
         steps{
-        docker build -t apache .
+        sh "docker build -t apache ."
         
         }
         }
